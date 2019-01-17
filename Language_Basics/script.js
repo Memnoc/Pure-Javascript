@@ -96,5 +96,45 @@ console.log(x, y);
 //More operators
 x = x * 2; // -> long
 x *= 2; // -> short
-x += 10; 
+x += 10;
 console.log(x);
+
+
+/**********************
+ * If / else statements
+ ************************/
+
+var firstName = 'John';
+var civilStatus = 'single';
+
+if (civilStatus == 'married') {
+    console.log(firstName + ' is married');
+} else {
+    console.log(firstName + ' is not married');
+}
+
+var isMarried = false;
+if (isMarried) {
+    console.log('Yeah is married');
+} else {
+    console.log('No he\'s not married');
+}
+
+/**********************
+* Refactoring the challenge code
+************************/
+
+var markEight = 1.65;
+var johnEight = 1.85;
+
+var markMass = 78;
+var johnMass = 92;
+
+var markBMI = markMass / (markEight * markEight);
+var johnBMI = johnMass / (johnEight * johnEight);
+
+if (markBMI > johnBMI) {
+    console.log('Mark\'s BMI is higher than John\'s');
+} else {
+    console.log('John\'s BMI is higher than Mark\'s');
+}
