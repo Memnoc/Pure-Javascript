@@ -1,174 +1,174 @@
-// /**********************
-//  * Variables and Data Types
-//  ************************/
+/**********************
+ * Variables and Data Types
+ **********************/
 
-// var firstName = 'John';
-// console.log(firstName);
+var firstName = 'John';
+console.log(firstName);
 
-// var lastName = 'Smith';
-// var age = 28;
-// console.log(lastName + " " + age);
+var lastName = 'Smith';
+var age = 28;
+console.log(lastName + " " + age);
 
-// var fullAge = true;
-// console.log(fullAge);
+var fullAge = true;
+console.log(fullAge);
 
-// var job;
-// job = 'Programmer';
-// console.log(job);
+var job;
+job = 'Programmer';
+console.log(job);
 
-// /**********************
-//  * Variables' Mutation and Type Coercion
-//  ************************/
+/**********************
+ * Variables' Mutation and Type Coercion
+ **********************/
 
-// var firstName = 'Matteo';
-// var age = 34;
+var firstName = 'Matteo';
+var age = 34;
 
-// // This is type coercion
-// console.log(firstName + ' ' + age);
+// This is type coercion
+console.log(firstName + ' ' + age);
 
-// var job, isMarried;
+var job, isMarried;
 
-// job = 'Teacher';
-// isMarried = false;
+job = 'Teacher';
+isMarried = false;
 
-// console.log(firstName + ' is a ' + age + ' year old ' + job + '. Is he married? ' + isMarried);
+console.log(firstName + ' is a ' + age + ' year old ' + job + '. Is he married? ' + isMarried);
 
-// // Variable mutation
-// age = 'twenty eight';
-// console.log(age);
+// Variable mutation
+age = 'twenty eight';
+console.log(age);
 
-// /**********************
-// * Basic Operators
-// ***********************/
+/**********************
+* Basic Operators
+***********************/
 
-// var now, yeahMark, yearJohn;
-// now = 2019;
-// ageJohn = 28;
-// ageMark = 33;
+var now, yeahMark, yearJohn;
+now = 2019;
+ageJohn = 28;
+ageMark = 33;
 
-// // Math Operators
-// var yearJohn = now - 28;
-// var yeahMark = now - 33;
+// Math Operators
+var yearJohn = now - 28;
+var yeahMark = now - 33;
 
-// console.log(yearJohn);
+console.log(yearJohn);
 
-// console.log(now + 2);
-// console.log(now / 2);
-// console.log(now * 2);
-// console.log(now % 2);
+console.log(now + 2);
+console.log(now / 2);
+console.log(now * 2);
+console.log(now % 2);
 
-// // Logical Operators
-// var johnOlder = ageJohn > ageMark;
-// console.log(johnOlder);
+// Logical Operators
+var johnOlder = ageJohn > ageMark;
+console.log(johnOlder);
 
-// // typeof operator
-// console.log(typeof johnOlder);
-// console.log(typeof johnOlder);
-// console.log(typeof ageJohn);
-// console.log(typeof 'Mark is older than John');
-// var x;
-// console.log(typeof x);
-
-
-// /**********************
-// * Operators' Precedence
-// ***********************/
-
-// var now = 2018;
-// var yearJohn = 1989;
-// var fullAge = 18;
-
-// // Multiple Operators
-// var isFullAge = now - yearJohn >= fullAge;
-// console.log(isFullAge);
-
-// // Grouping
-// var ageJohn = now - yearJohn;
-// var ageMark = 35;
-// var average = (ageJohn + ageMark) / 2;
-// console.log(average);
-
-// // Multiple assignment -> Associativity
-// var x, y;
-// x = y = (3 + 5) * 4 - 6; // 8 * 4 - 6 //32 - 6 // 26 -> Assignment works from right to left
-// console.log(x, y);
-
-// //More operators
-// x = x * 2; // -> long
-// x *= 2; // -> short
-// x += 10;
-// console.log(x);
+// typeof operator
+console.log(typeof johnOlder);
+console.log(typeof johnOlder);
+console.log(typeof ageJohn);
+console.log(typeof 'Mark is older than John');
+var x;
+console.log(typeof x);
 
 
-// /**********************
-//  * If / else statements
-//  ************************/
+/**********************
+* Operators' Precedence
+***********************/
 
-// var firstName = 'John';
-// var civilStatus = 'single';
+var now = 2018;
+var yearJohn = 1989;
+var fullAge = 18;
 
-// if (civilStatus == 'married') {
-//     console.log(firstName + ' is married');
-// } else {
-//     console.log(firstName + ' is not married');
-// }
+// Multiple Operators
+var isFullAge = now - yearJohn >= fullAge;
+console.log(isFullAge);
 
-// var isMarried = false;
-// if (isMarried) {
-//     console.log('Yeah is married');
-// } else {
-//     console.log('No he\'s not married');
-// }
+// Grouping
+var ageJohn = now - yearJohn;
+var ageMark = 35;
+var average = (ageJohn + ageMark) / 2;
+console.log(average);
 
-// /**********************
-// * Refactoring the challenge code
-// ************************/
+// Multiple assignment -> Associativity
+var x, y;
+x = y = (3 + 5) * 4 - 6; // 8 * 4 - 6 //32 - 6 // 26 -> Assignment works from right to left
+console.log(x, y);
 
-// var markEight = 1.65;
-// var johnEight = 1.85;
+//More operators
+x = x * 2; // -> long
+x *= 2; // -> short
+x += 10;
+console.log(x);
 
-// var markMass = 78;
-// var johnMass = 92;
 
-// var markBMI = markMass / (markEight * markEight);
-// var johnBMI = johnMass / (johnEight * johnEight);
+/**********************
+ * If / else statements
+ **********************/
 
-// if (markBMI > johnBMI) {
-//     console.log('Mark\'s BMI is higher than John\'s');
-// } else {
-//     console.log('John\'s BMI is higher than Mark\'s');
-// }
+var firstName = 'John';
+var civilStatus = 'single';
 
-// /**********************
-// * Boolean Logic
-// ************************/
+if (civilStatus == 'married') {
+    console.log(firstName + ' is married');
+} else {
+    console.log(firstName + ' is not married');
+}
 
-// var firstName = 'John';
-// var age = 20;
+var isMarried = false;
+if (isMarried) {
+    console.log('Yeah is married');
+} else {
+    console.log('No he\'s not married');
+}
 
-// if (age < 13) {
-//     console.log(firstName + ' is a boy');
-// } else if (age >= 13 && age < 20) {
-//     console.log(firstName + ' is a teenager');
-// } else if (age >= 20 && age < 30) {
-//     console.log(firstName + ' is a young man');
-// } else {
-//     console.log(firstName + ' is a man');
-// }
+/**********************
+* Refactoring the challenge code
+***********************/
 
-// /**********************
-// * Ternary Operator and Switch Statements
-// ************************/
+var markEight = 1.65;
+var johnEight = 1.85;
 
-// var firstName = 'John';
-// var age = 16;
+var markMass = 78;
+var johnMass = 92;
 
-// // Ternary Operator
-// age >= 18 ? console.log(firstName + ' drinks beer.')
-//     : console.log(firstName + ' drinks beer.');
+var markBMI = markMass / (markEight * markEight);
+var johnBMI = johnMass / (johnEight * johnEight);
 
-// var drink = age >= 18 ? 'beer' : 'juice';
-// console.log(firstName + ' drinks ' + drink);
+if (markBMI > johnBMI) {
+    console.log('Mark\'s BMI is higher than John\'s');
+} else {
+    console.log('John\'s BMI is higher than Mark\'s');
+}
+
+/**********************
+* Boolean Logic
+***********************/
+
+var firstName = 'John';
+var age = 20;
+
+if (age < 13) {
+    console.log(firstName + ' is a boy');
+} else if (age >= 13 && age < 20) {
+    console.log(firstName + ' is a teenager');
+} else if (age >= 20 && age < 30) {
+    console.log(firstName + ' is a young man');
+} else {
+    console.log(firstName + ' is a man');
+}
+
+/**********************
+* Ternary Operator and Switch Statements
+************************/
+
+var firstName = 'John';
+var age = 16;
+
+// Ternary Operator
+age >= 18 ? console.log(firstName + ' drinks beer.')
+    : console.log(firstName + ' drinks beer.');
+
+var drink = age >= 18 ? 'beer' : 'juice';
+console.log(firstName + ' drinks ' + drink);
 
 // Switch Statement
 var job = 'weight lifter';
@@ -188,17 +188,35 @@ switch (job) {
         console.log(firstName + ' is unemployed!!');
 }
 
-        switch (true) {
-            case age < 13:
-                console.log(firstName + ' is a boy.');
-                break;
-            case age >= 13 && age < 20:
-                console.log(firstName + ' is a teenager');
-                break;
-            case age >= 20 && age < 30:
-                console.log(firstName + ' is a young man');
-                break;
-            default:
-                console.log(firstName + ' is a man');
-        }
-    
+switch (true) {
+    case age < 13:
+        console.log(firstName + ' is a boy.');
+        break;
+    case age >= 13 && age < 20:
+        console.log(firstName + ' is a teenager');
+        break;
+    case age >= 20 && age < 30:
+        console.log(firstName + ' is a young man');
+        break;
+    default:
+        console.log(firstName + ' is a man');
+}
+
+/**********************
+ * Truthy and Falsy
+ **********************/
+
+ // Falsy: a value is falsy when evaluated as 'false' in a if statement.
+ // Falsy values are: undefined, null, zero, empty string '', not a number NaN
+
+ // Truthy: a value is truthy when evaluated as 'true' in a if statement.
+ // Truthy values are: all the non-falsy values
+
+ var height = 0;
+
+ if(height || height === 0) {
+     console.log('The variable is defined');
+ } else {
+     console.log('The variable has not been defined')
+ }
+
