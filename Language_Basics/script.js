@@ -276,10 +276,10 @@ switch (true) {
  * Arrays
  **********************/
 
+ // Initialize new array
 var names = ['John', 'Mark', 'Jane'];
 var years = new Array(1990, 1969, 1948);
 
-// Initialize new array
 console.log(names[0]);
 console.log(names);
 console.log(names.length); // -> returns the number of elements
