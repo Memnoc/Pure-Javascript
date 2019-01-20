@@ -206,77 +206,77 @@ switch (true) {
  * Truthy and Falsy
  **********************/
 
- // Falsy: a value is falsy when evaluated as 'false' in a if statement.
- // Falsy values are: undefined, null, zero, empty string '', not a number NaN
+// Falsy: a value is falsy when evaluated as 'false' in a if statement.
+// Falsy values are: undefined, null, zero, empty string '', not a number NaN
 
- // Truthy: a value is truthy when evaluated as 'true' in a if statement.
- // Truthy values are: all the non-falsy values
+// Truthy: a value is truthy when evaluated as 'true' in a if statement.
+// Truthy values are: all the non-falsy values
 
- var height = 0;
+var height = 0;
 
- if(height || height === 0) {
-     console.log('The variable is defined');
- } else {
-     console.log('The variable has not been defined')
- }
+if (height || height === 0) {
+    console.log('The variable is defined');
+} else {
+    console.log('The variable has not been defined')
+}
 
- /**********************
- * Functions
- **********************/
+/**********************
+* Functions
+**********************/
 
- function calculateAge(birthYear) {
-     return 2018 - birthYear;
- }
+function calculateAge(birthYear) {
+    return 2018 - birthYear;
+}
 
- var ageJohn = calculateAge(1990);
- console.log(ageJohn);
- var ageMike = calculateAge(1948);
- console.log(ageMike);
- var ageJane = calculateAge(1969);
- console.log(ageJane);
+var ageJohn = calculateAge(1990);
+console.log(ageJohn);
+var ageMike = calculateAge(1948);
+console.log(ageMike);
+var ageJane = calculateAge(1969);
+console.log(ageJane);
 
- function yearsUntilRetirement(year, firstName) {
-     var age = calculateAge(year);
-     var retirement = 65 - age;
-     if(retirement > 0) {
+function yearsUntilRetirement(year, firstName) {
+    var age = calculateAge(year);
+    var retirement = 65 - age;
+    if (retirement > 0) {
         console.log(firstName + ' retires in ' + retirement + ' years.')
-     }
-     console.log(firstName + ' is already retired.')
- }
+    }
+    console.log(firstName + ' is already retired.')
+}
 
- yearsUntilRetirement(1990, 'John');
- yearsUntilRetirement(1948, 'Mike');
- yearsUntilRetirement(1969, 'Jane');
+yearsUntilRetirement(1990, 'John');
+yearsUntilRetirement(1948, 'Mike');
+yearsUntilRetirement(1969, 'Jane');
 
- /**********************
- * Functions Statements and Expressions
- **********************/
+/**********************
+* Functions Statements and Expressions
+**********************/
 
- // Function Expression -> Anything that produces an immediate result is an expression.
- var whatDoYouDo = function(job, firstName) {
-    switch(job){
+// Function Expression -> Anything that produces an immediate result is an expression.
+var whatDoYouDo = function (job, firstName) {
+    switch (job) {
         case 'teacher':
             return firstName + ' teaches kids how to code';
         case 'driver':
             return firstName + ' drives a cab in Lisbon.'
         case 'designer':
-        return firstName + ' designes beautiful websites.'
+            return firstName + ' designes beautiful websites.'
         default:
-        return firstName + ' does something else.'
+            return firstName + ' does something else.'
     }
- }
+}
 
- console.log(whatDoYouDo('teacher', 'John'));
- console.log(whatDoYouDo('designer', 'Jane'));
- console.log(whatDoYouDo('retired', 'Mark'));
+console.log(whatDoYouDo('teacher', 'John'));
+console.log(whatDoYouDo('designer', 'Jane'));
+console.log(whatDoYouDo('retired', 'Mark'));
 
- // Statements perform actions, but they do not produce any immediate value.
+// Statements perform actions, but they do not produce any immediate value.
 
- /**********************
- * Arrays
- **********************/
+/**********************
+* Arrays
+**********************/
 
- // Initialize new array
+// Initialize new array
 var names = ['John', 'Mark', 'Jane'];
 var years = new Array(1990, 1969, 1948);
 
@@ -310,11 +310,11 @@ var isDesigner = john.indexOf('designer') === -1 ? 'John is not a designer' : 'J
 console.log(isDesigner);
 
 
- /**********************
- * Objects and properties
- **********************/
+/**********************
+* Objects and properties
+**********************/
 
- // This way of defining objects is called "Object literal"
+// This way of defining objects is called "Object literal"
 var john = {
     firstName: 'John',
     lastName: 'Smith',
@@ -347,9 +347,9 @@ jane.birthYear = 1984;
 jane['lastName'] = 'Smith';
 console.log(jane);
 
- /**********************
- * Objects and methods
- **********************/
+/**********************
+* Objects and methods
+**********************/
 
 var john = {
     firstName: 'John',
@@ -359,7 +359,7 @@ var john = {
     job: 'teacher',
     isMarried: false,
     // Method: it's a function that is a property of an object
-    calcAge: function() {
+    calcAge: function () {
         this.age = 2018 - this.birthYear;
     }
 };
