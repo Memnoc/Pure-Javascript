@@ -350,3 +350,20 @@ console.log(jane);
  /**********************
  * Objects and methods
  **********************/
+
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1984,
+    family: ['Jane', 'Mark', 'Bob', 'Emma'],
+    job: 'teacher',
+    isMarried: false,
+    // Method: it's a function that is a property of an object
+    calcAge: function() {
+        this.age = 2018 - this.birthYear;
+    }
+};
+
+john.calcAge();
+console.log(john);
+
