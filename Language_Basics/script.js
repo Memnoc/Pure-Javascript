@@ -308,3 +308,45 @@ console.log(john.indexOf(23));
 
 var isDesigner = john.indexOf('designer') === -1 ? 'John is not a designer' : 'John is a designer';
 console.log(isDesigner);
+
+
+ /**********************
+ * Objects and properties
+ **********************/
+
+ // This way of defining objects is called "Object literal"
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1990,
+    family: ['Jane', 'Mark', 'Bob', 'Emma'],
+    job: 'teacher',
+    isMarried: false
+};
+
+// Access the whole object
+console.log(john);
+
+// Accessing single object's element with dot-notation
+console.log(john.firstName);
+// Accessing single object's element directly
+console.log(john['lastName']);
+// Accessing object's element saved in a variable
+var x = 'birthYear';
+console.log(john[x]);
+
+// Mutate data
+john.job = 'designer';
+john['isMarried'] = true;
+console.log(john);
+
+// Initialize object
+var jane = new Object();
+jane.name = 'Jane';
+jane.birthYear = 1984;
+jane['lastName'] = 'Smith';
+console.log(jane);
+
+ /**********************
+ * Objects and methods
+ **********************/
