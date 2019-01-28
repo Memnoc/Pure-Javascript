@@ -13,32 +13,40 @@ var scores, roundScore, activePlayer, gamePlaying;
 
 init();
 
+var lastDice;
 
-document.querySelector('.btn-roll').addEventListener('click', function() {
-    if(gamePlaying) {
+
+document.querySelector('.btn-roll').addEventListener('click', function () {
+    if (gamePlaying) {
         // 1. Random number
         var dice = Math.floor(Math.random() * 6) + 1;
+        console.log(dice);
 
         //2. Display the result
         var diceDOM = document.querySelector('.dice');
         diceDOM.style.display = 'block';
         diceDOM.src = 'dice-' + dice + '.png';
 
-
         //3. Update the round score IF the rolled number was NOT a 1
-        if (dice !== 1) {
+        if (dice === 6 && lastDice === 6) {
+            doubleRoll();
+        } else if (dice !== 1) {
             //Add score
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
+        } else if (dice === 6 && lastDice === 6) {
+            console.log('melda');
+            doubleRoll();
         } else {
             //Next player
             nextPlayer();
         }
-    }    
+        lastDice = dice;
+    }
 });
 
 
-document.querySelector('.btn-hold').addEventListener('click', function() {
+document.querySelector('.btn-hold').addEventListener('click', function () {
     if (gamePlaying) {
         // Add CURRENT score to GLOBAL score
         scores[activePlayer] += roundScore;
@@ -60,6 +68,14 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     }
 });
 
+
+function doubleRoll() {
+    console.log('lost'); // -> working
+    // Player lost
+    scores[activePlayer] = 0;
+    document.querySelector('#current-' + activePlayer).textContent = '0';
+    nextPlayer();
+}
 
 function nextPlayer() {
     //Next player
@@ -85,7 +101,7 @@ function init() {
     activePlayer = 0;
     roundScore = 0;
     gamePlaying = true;
-    
+
     document.querySelector('.dice').style.display = 'none';
 
     document.getElementById('score-0').textContent = '0';
