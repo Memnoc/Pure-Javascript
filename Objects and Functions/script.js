@@ -167,3 +167,24 @@ designerQuestion('Jane');
 // Same stuff but shorter syntax
 
 interviewQuestion('teacher')('Mark');
+
+//Immediately Invoked Function Expressions (IFEE)
+
+// Classic way
+function game() {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+}
+game();
+
+// IFEE way
+(function () {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+})();
+
+// IFEE with arguments
+(function (goodLuck) {
+    var score = Math.random() * 10;
+    console.log(score >= 5 - goodLuck);
+})(5);
