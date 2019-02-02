@@ -88,7 +88,7 @@ var obj = {
     city: 'Lisbon'
 };
 
-function change (a, b) {
+function change(a, b) {
     a = 30;
     b = 'San Francisco';
 }
@@ -102,3 +102,40 @@ Point is: you can change a primnitve as much you want, as a real copy is created
 never affect the original value (27 in this case).
 For object is different, as no real copy is passed, but just an instance of the original
  they will overwrite the  original every time you alter the reference. */
+
+// Passing functiions as arguments
+
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+    var arrRes = [];
+    for (var i = 0; i < arr.length; i++) {
+        arrRes.push(fn(arr[i]));
+    }
+    return arrRes;
+}
+
+// Callback function
+function calculateAge(el) {
+    return 2016 - el;
+}
+
+function isFullAge(el) {
+    return el >= 18;
+}
+
+function maxHeartRate(el) {
+    if (el >= 18 && el <= 81) {
+        return Math.round(206.9 - (0.67 * el));
+    }
+    return -1;
+}
+
+var ages = arrayCalc(years, calculateAge);
+console.log(ages);
+
+var fullAge = arrayCalc(ages, isFullAge);
+console.log(fullAge);
+
+var heartRate = arrayCalc(ages, maxHeartRate);
+console.log(heartRate);
