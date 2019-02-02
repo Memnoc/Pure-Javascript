@@ -143,16 +143,16 @@ console.log(heartRate);
 // Functions returning functions
 
 function interviewQuestion(job) {
-    if(job === 'designer') {
-        return function(name) {
+    if (job === 'designer') {
+        return function (name) {
             console.log(name + ', can you please explain what UX design is?')
         }
     } else if (job === 'teacher') {
-        return function(name) {
+        return function (name) {
             console.log('What subject do you teach,' + ' ' + name + '?');
         }
     } else {
-        return function(name) {
+        return function (name) {
             console.log('Hello ' + name + ', what do you do?');
         }
     }
@@ -188,3 +188,71 @@ game();
     var score = Math.random() * 10;
     console.log(score >= 5 - goodLuck);
 })(5);
+
+// Closures - are functions with preserved data
+/* An inner function has always access to the variables and
+parameters of its outer function, even after the outer function
+has returned */
+
+function retirement(retirementAge) {
+    var a = ' years left until retirement.';
+    return function (yearOfBirth) {
+        var age = 2016 - yearOfBirth;
+        console.log((retirementAge - age) + a);
+    }
+}
+
+var retirementUS = retirement(66);
+var retirementGermany = retirement(65);
+var retirementIceland = retirement(67);
+retirementUS(1990);
+retirementGermany(1990);
+retirementIceland(1990);
+// Same but shorter
+//retirement(66)(1990);
+
+// My solution
+function interviewQuestionsTwo(job) {
+    var job1 = 'designer';
+    var job2 = 'teacher';
+    var job3 = 'unemployed';
+    return function personName(name) {
+        if (job1 === job) {
+            console.log(name + ' is a ' + job1);
+        } else if (job2 === job) {
+            console.log(name + ' is a ' + job2);
+        } else if (job3 === job) {
+            console.log(name + ' is ' + job3);
+        } else {
+            console.log(name + ', what kind of job a ' + job + ' does?')
+        }
+    }
+}
+
+var firstInterview = interviewQuestionsTwo('programmer');
+firstInterview('Matteo');
+var firstInterview = interviewQuestionsTwo('designer');
+firstInterview('Mark');
+var firstInterview = interviewQuestionsTwo('teacher');
+firstInterview('Jim');
+var firstInterview = interviewQuestionsTwo('unemployed');
+firstInterview('Baingio');
+
+console.dir(firstInterview);
+
+// Teacher's solution
+
+function interviewQuestionThree(job) {
+    return function personNameTwo(name) {
+        if (job === 'designer') {
+            console.log(name + ', can you please explain what UX design is?')
+        } else if (job === 'teacher') {
+            console.log(name + ', what do you teach?')
+        } else {
+            console.log('What job do you do?')
+        }
+    }
+}
+
+interviewQuestionThree('teacher')('John');
+console.dir(interviewQuestion);
