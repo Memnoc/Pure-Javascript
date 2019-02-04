@@ -256,3 +256,49 @@ function interviewQuestionThree(job) {
 
 interviewQuestionThree('teacher')('John');
 console.dir(interviewQuestion);
+
+
+// Bind, call and apply
+
+var john = {
+    name: 'John',
+    age: 26,
+    job: 'teacher',
+    presentation: function(style, timeOfDay) {
+        if(style === 'formal') {
+            console.log(' Good ' + timeOfDay + ' ladies and gents! I\'m ' + this.name + ' and I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.' + ' Have a nice ' + timeOfDay);
+        } else if (style === 'friendly') {
+            console.log(' Hey, sup? ' + ' I\'m ' + this.name + ' and I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.' + ' Have a nice ' + timeOfDay);
+        }
+    }
+}
+
+var emily = {
+    name: 'Emily',
+    age: 35,
+    job: 'designer'
+};
+
+john.presentation('formal', 'morning');
+
+// call()
+// allow us to borrow functions and set the this value in function invocation
+john.presentation.call(emily, 'friendly', 'afternoon');
+
+// bind()
+// Allows Us to Set the this Value on Methods
+// Allows us to Borrow Methods
+// Allows us to Curry a  Function
+// (also known as partial function application, is the use of a function (that accept one or more arguments) that returns a new function with some of the arguments already set)
+var johnFriendly = john.presentation.bind(john, 'friendly');
+
+johnFriendly('morning');
+johnFriendly('night');
+
+var emilyFormal = john.presentation.bind(emily, 'formal');
+emilyFormal('afternoon');
+
+// apply()
+// allow us to borrow functions and set the this value in function invocation
+// the apply function in particular allows us to execute a function with an array of parameters, such that each parameter is passed to the function individually when the function executes.
+john.presentation.apply(emily, ['friendly', 'afternon']);
