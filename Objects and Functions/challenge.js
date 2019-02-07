@@ -123,7 +123,7 @@ c) correct answer (I would use a number for this)
         console.log('------------------------------');
     }
     
-    
+    // Questions
     var q1 = new Question('Is JavaScript the coolest programming language in the world?',
                           ['Yes', 'No'],
                           0);
@@ -138,6 +138,7 @@ c) correct answer (I would use a number for this)
     
     var questions = [q1, q2, q3];
     
+    // Keeping track of the score
     function score() {
         var sc = 0;
         return function(correct) {
