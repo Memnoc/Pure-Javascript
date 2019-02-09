@@ -121,3 +121,31 @@ console.log(john);
   john instanceof Person -> false
   john instanceof PersonTwo -> true 
   */
+
+/**************** OBJECTS.CREATE ****************/  
+/**************** Objects inheriting from a prototype ****************/
+/**
+ * FUNCTION CONSTRUCTOR VS OBJECT.CREATE
+ * OBJECT.CREATE builds an object that inherits directly from the object passed
+ * as a first argument.
+ * FUNCTION CONSTRUCTOR, the newly created object inherits from the 
+ * constructor's prototype property.
+ * BENEFIT OVER FUNCTION CONSTRUCTOR: Object.create allows to implement a complex
+ * inheritance structure, as it lets you specify which object should be the proto.
+ *    
+*/
+var personProto = {
+    calculateAge: function() {
+        console.log(2016-this.yearOfBirth);
+    }
+};
+
+var john = Object.create(personProto);
+john.name = 1990;
+john.job = 'teacher';
+
+var jane = Object.create(personProto, {
+    name: { value: 'Jane'},
+    yearOfBirth: {value: 1959},
+    job: {value: 'programmer'}
+});
