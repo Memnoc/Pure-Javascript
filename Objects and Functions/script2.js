@@ -202,7 +202,7 @@ console.log(age, obj.city); // -> 27, "Madison"; ->
  * A function is an instance of the Object type.
  * A function behaves like any other object.
  * A function can be store in a variable a.k.a FUNCTION EXPRESSION.
- * A function can be passed as argument to another function a.k.a FIRST CLASS FUNCTIONS
+ * A function can be passed as argument to another function a.k.a FIRST CLASS FUNCTIONS.
  * We can return a function from a function.
  */
 
