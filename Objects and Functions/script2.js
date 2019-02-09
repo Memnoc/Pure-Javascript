@@ -100,6 +100,11 @@ console.log(john);
     console.log(2019 - this.ageTwo);
 }
 
+/**
+ * Same can be done with properties. You can store them in the proto
+ */
+ PersonTwo.prototype.thirdJob = 'Support Agent';
+
  var mike = new PersonTwo('Mark', 1984, 'Coder');
  var jane = new PersonTwo('Jane', 1974, 'Designer');
  var john = new PersonTwo('John', 1964, 'Plumber');
@@ -107,4 +112,12 @@ console.log(john);
  jane.calculateAge();
  john.calculateAge();
 
- 
+ console.log(mike.thirdJob);
+
+ /**
+  ********* Useful Properties to run in console to analyze objects *********
+  john.hasOwnProperty('jobTwo'); -> true (property owned by the object john).
+  john.hasOwnProperty('thirdJob'); -> false (not the property of john, but of the proto).
+  john instanceof Person -> false
+  john instanceof PersonTwo -> true 
+  */
