@@ -149,3 +149,50 @@ var jane = Object.create(personProto, {
     yearOfBirth: {value: 1959},
     job: {value: 'programmer'}
 });
+
+
+/**************** PRIMITIVES VS OBJECTS ****************/ 
+/**
+ * PRIMITVES Numbers, Strings, Booleans, Undefined, Null
+ * OBJECTS Arrays, Functions, Objects, Dates, Wrappers for Numbers, Strings, and Booleans
+ * 
+ * 
+ * 
+ * **************** DIFFERENCE ****************
+ * - VARIABLES CONTAINING PRIMITVES, ACTUALLY HOLD THE DATA INSIDE THE VARIABLE ITSELF.
+ * - VARIABLES CONTAINING OBJECTS, HOLD A REFERENCE TO THE PLACE IN MEMORY WHERE THE OBJECT SITS, NOT THE ACTUAL OBJECT ITSELF.
+ */
+//PRIMITIVES
+ var a = 23;
+ var b = a;
+ a = 46;
+ console.log(a,b); //-> 46, 23 -> 
+ // Each variable actually hold their own copy of the data
+
+ // OBJECTS
+ var obj1 = {
+     name: 'Chris',
+     age: 26
+ };
+ var obj2 = obj1;
+ obj1.age = 30;
+ console.log(obj1.age, obj2.age); //-> 30, 30 -> 
+ // Variables changed because they do not actually contain the data
+
+ // FUNCTIONS
+ var age = 27;
+ var obj = {
+     name: 'Jonas',
+     city: 'Dublin'
+ };
+
+ function change(a,b) {
+     a = 30;
+     b.city = 'Madison';
+ }
+
+ change(age, obj);
+ console.log(age, obj.city); // -> 27, "Madison"; ->
+ // 27 did not change -> it's a primitve, actually contains the variable.
+ // obj.city did change -> it's an object, only contains a reference pointing to the object.
+
