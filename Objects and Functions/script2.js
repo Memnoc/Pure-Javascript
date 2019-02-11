@@ -274,3 +274,42 @@ designerQuestion('John');
 
 // Can also be written as
 var teacherQuestion = interviewQuestion('teacher')('Mark');
+
+/**************** IIFE ****************/
+/*** Immediately Invoked Functions Expressions *****/
+/**
+ * IIFE are a way to trick the interpreter into thinking
+ * an anonymous function is an expression.
+ * Anonymous functions cannot stand by their own, they are flagged by the 
+ * intepreter as errors.
+ * IIFE wraps the anonymous function into an expression,
+ * so that it can be called immediately.
+ * 
+ * What's inside a parenthesis in Javascript is an expression.
+ * What's outside of parenthesis in Javascript, is a statement.
+ */
+
+ // Standard
+function game() {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+}
+game();
+
+/**
+ * IIFE are also useful for ENCAPSULATION PURPOSES.
+ * Infact, the cvariable score is now scoped in the expression,
+ * and cannot be accessed from the outside.
+ */
+(function () {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+})();
+
+/**
+ * IIFE can also be used with arguments
+ */
+(function (goodluck) {
+    var score = Math.random() * 10;
+    console.log(score >= 5 - goodluck);
+})(5); //-> pass the argument here
