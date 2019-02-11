@@ -243,3 +243,34 @@ console.log(ageResults);
 console.log(fullAgesResults);
 console.log(avgHeartRate);
 
+/**************** FIRST CLASS FUNCTIONS ****************/
+/**************** Functions returning functions ********/
+
+/**
+ * Functions like these are possible in Javascript because, in reality, every function is an object.
+ * Therefore, we are yes returning an anonymous function, but it's also true we are retirning an object!
+ */
+function interviewQuestion(job) {
+    if (job === 'designer') {
+        return function (name) {
+            console.log(name + ', can you please explain what UX design is?');
+        }
+    } else if (job === 'teacher') {
+        return function (name) {
+            console.log('What subject do you teach, ' + name + '?');
+        }
+    } else {
+        return function (name) {
+            console.log('Hello ' + name + ', what do you do?')
+        }
+    }
+}
+
+
+var teacherQuestion = interviewQuestion('teacher');
+var designerQuestion = interviewQuestion('designer');
+teacherQuestion('John');
+designerQuestion('John');
+
+// Can also be written as
+var teacherQuestion = interviewQuestion('teacher')('Mark');
