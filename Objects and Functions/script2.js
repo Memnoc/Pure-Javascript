@@ -289,7 +289,7 @@ var teacherQuestion = interviewQuestion('teacher')('Mark');
  * What's outside of parenthesis in Javascript, is a statement.
  */
 
- // Standard
+// Standard
 function game() {
     var score = Math.random() * 10;
     console.log(score >= 5);
@@ -313,3 +313,47 @@ game();
     var score = Math.random() * 10;
     console.log(score >= 5 - goodluck);
 })(5); //-> pass the argument here
+
+
+/**************** CLOSURES ****************/
+
+function retirement(retirementAge) {
+    var a = ' years left until retirement';
+    return function (yearOfBirth) {
+        var age = 2016 - yearOfBirth;
+        console.log((retirementAge - age) + a);
+    }
+}
+
+var retirementUS = retirement(66);
+retirementUS(1990);
+
+// Can also be written as
+// retirement(66)(1990);
+
+var retirementEU = retirement(65);
+retirementEU(1990);
+
+var retirementIceland = retirement(67);
+retirementEU(1990);
+
+
+/**
+ * Re-writing the interviewQuestion() function using closures
+ * The closure is demonstrated by the fact that you can use 'job'
+ * even after the interviewQuestionClosure has returned.
+ */
+
+function interviewQuestionClosure(job) {
+    return function (name) {
+        if (job === 'designer') {
+            console.log(name + ', can you please explain what UX design is?');
+        } else if (job === 'teacher') {
+            console.log('What subject do you teach, ' + name + '?');
+        } else {
+            console.log('Hello ' + name + ', what do you do?')
+        }
+    }
+}
+
+interviewQuestionClosure('designer')('Mat');
