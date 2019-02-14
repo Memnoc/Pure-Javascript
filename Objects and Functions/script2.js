@@ -357,3 +357,79 @@ function interviewQuestionClosure(job) {
 }
 
 interviewQuestionClosure('designer')('Mat');
+
+
+/**************** BIND, CALL, APPLY ****************/
+/**
+ * CALL: it's used when you want to use a method from an object,
+ * onto another object that doesn't have that method.
+ * In the sample case, john.presentation(a,b) is used by the object
+ * jane, that has not that method declare.
+ * This is also defined as METHOD BORROWING
+ */
+
+var john = {
+    name:'John',
+    age:26,
+    job:'teacher',
+    presentation: function(style, timeOfDay) {
+        if(style === 'formal') {
+            console.log('Good ' + timeOfDay + ', ladies and gentleman! I\'m ' + this.name + ' and I\'m a ' + this.job + ', and I\'m ' + this.age + ' years old' + ' Have a nice ' + timeOfDay);
+        } else if (style === 'friendly') {
+            console.log('Suup ' + 'folks! I\'m ' + this.name + ' and I\'m a ' + this.job + ', and I\'m ' + this.age + ' Cya! ' + timeOfDay);
+        }
+    }
+}
+
+john.presentation('formal', 'afternoon');
+
+
+var jane = {
+    name:'John',
+    age:26,
+    job:'teacher'
+};
+
+john.presentation.call(jane, 'friendly', 'night');
+
+/**
+ * APPLY: same as CALL, but takes an array as argument.
+ */
+
+  var johnApply = {
+    name:'JohnApply',
+    age:66,
+    job:'coder',
+    presentationApply: function(style, timeOfDay) {
+        if(style === 'formal') {
+            console.log('Good ' + timeOfDay + ', ladies and gentleman! I\'m ' + this.name + ' and I\'m a ' + this.job + ', and I\'m ' + this.age + ' years old' + ' Have a nice ' + timeOfDay);
+        } else if (style === 'friendly') {
+            console.log('Suup ' + 'folks! I\'m ' + this.name + ' and I\'m a ' + this.job + ', and I\'m ' + this.age + ' Cya! ' + timeOfDay);
+        } else {
+            console.log('Yo ' + this.name + ', I don\'t think we have ever met, but you are ' + style);
+        }
+    }
+}
+
+var hella = {
+    name:'Hella',
+    age:36,
+    job:'coder'
+};
+
+johnApply.presentationApply.apply(hella, ['raging', 'evening']);
+
+
+/**
+ * BIND:does not immediately invoke the function.
+ * It generates a copyof it, so that it can be stored.
+ * Useful when you want to create functions with pre-set arguments.
+ * In the example, I will pre-set the argument 'friendly', but not the argument 'timeOfDay'.
+ * This is also known as CURRYING, which means creating a function, based of another function,
+ * BUT with some PRESET PARAMETERS.
+ */
+
+ var johnFriendly = john.presentation.bind(john, 'friendly');
+
+ johnFriendly('Early morning');
+ johnFriendly('Top of the morning!');
