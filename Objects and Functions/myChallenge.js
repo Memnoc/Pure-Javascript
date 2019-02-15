@@ -1,45 +1,82 @@
 // Build the questions
 
-(function () {
-class Question {
-    constructor(question, answer, correct) {
+(function() {
+    function Question(question, answers, correct) {
         this.question = question;
-        this.answer = answer;
+        this.answers = answers;
         this.correct = correct;
     }
-}
 
-// Create a couple of questions, using the contructor
-var q1 = new Question('Is the sky really blue?', ['yes', 'no', 'don\'t know'], 1);
-var q2 = new Question('Is the Earth flat?', ['yes', 'no', 'don\'t know'], 0);
-var q3 = new Question('Is Flutter cool?', ['yes', 'no', 'don\'t know'], 2);
+    Question.prototype.displayQuestion = function() {
+        console.log(this.question);
 
-// Store them in an array
-var questions = [q1, q2, q3];
-// Create a random variable
-var random = Math.floor(Math.random() * questions.length);
-
-// Create a method to display the questions
-Question.prototype.displayQuestions = function() {
-    console.log(this.question);
-    for(var i = 0; i < this.answer.length; i++) {
-        console.log(i + ' :' + this.answer[i]);
+        for (var i = 0; i < this.answers.length; i++) {
+            console.log(i + ': ' + this.answers[i]);
+        }
     }
-}
 
-// Check the answer
-Question.prototype.checkAnswer = function (answer) {
-    if(userInput === this.correct) {
-        console.log('Your answer is correct!')
-    } else {
-        console.log('Your answer is wrong, try again!')
+    Question.prototype.checkAnswer = function(ans, callback) {
+        var sc;
+        
+        if (ans === this.correct) {
+            console.log('Correct answer!');
+            sc = callback(true);
+        } else {
+            console.log('Wrong answer. Try again :)');
+            sc = callback(false);
+        }
+        
+        this.displayScore(sc);
     }
-}
 
-// Ask the questions
-questions[random].displayQuestions();
-// Prompt the dialog
-var userInput = parseInt(prompt('Please enter your answer: '));
-// Validate the answer
-questions[random].checkAnswer(userInput);
+    Question.prototype.displayScore = function(score) {
+        console.log('Your current score is: ' + score);
+        console.log('------------------------------');
+    }
+    
+    // Questions
+    var q1 = new Question('Is JavaScript the coolest programming language in the world?',
+                          ['Yes', 'No'],
+                          0);
+
+    var q2 = new Question('What is the name of this course\'s teacher?',
+                          ['John', 'Micheal', 'Jonas'],
+                          2);
+
+    var q3 = new Question('What does best describe coding?',
+                          ['Boring', 'Hard', 'Fun', 'Tediuos'],
+                          2);
+    
+    var questions = [q1, q2, q3];
+    
+    // Keeping track of the score
+    function score() {
+        var sc = 0;
+        return function(correct) {
+            if (correct) {
+                sc++;
+            }
+            return sc;
+        }
+    }
+    var keepScore = score();
+    
+    
+    function nextQuestion() {
+
+        var n = Math.floor(Math.random() * questions.length);
+        questions[n].displayQuestion();
+
+        var answer = prompt('Please select the correct answer.');
+
+        if(answer !== 'exit') {
+            questions[n].checkAnswer(parseInt(answer), keepScore);
+            
+            nextQuestion();
+        }
+    }
+    
+    nextQuestion();
+    
 })();
+
